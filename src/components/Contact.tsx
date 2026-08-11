@@ -29,23 +29,60 @@ export const Contact: React.FC<ContactProps> = ({ setCursorState }) => {
     setTimeout(() => setCopied(false), 3000);
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formState.email || !formState.message) return;
+  const handleFormSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    setFormSubmitted(true);
-    confetti({
-      particleCount: 100,
-      spread: 80,
-      origin: { y: 0.6 },
-      colors: ['#FF5A1F', '#FF7B47', '#ffffff']
+  if (!formState.name || !formState.email || !formState.message) {
+    return;
+  }
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+        name: formState.name,
+        email: formState.email,
+        message: formState.message,
+        subject: 'New Portfolio Enquiry - Karthick G',
+        from_name: 'Karthick G Portfolio',
+      }),
     });
 
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormState({ name: '', email: '', message: '' });
-    }, 4000);
-  };
+    const result = await response.json();
+
+    console.log('Web3Forms response:', result);
+
+    if (result.success) {
+      setFormSubmitted(true);
+
+      confetti({
+        particleCount: 100,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ['#FF5A1F', '#FF7B47', '#ffffff'],
+      });
+
+      setTimeout(() => {
+        setFormSubmitted(false);
+        setFormState({
+          name: '',
+          email: '',
+          message: '',
+        });
+      }, 4000);
+    } else {
+      alert(result.message || 'Unable to send your message.');
+    }
+  } catch (error) {
+    console.error('Web3Forms error:', error);
+    alert('Unable to send your message. Please try again.');
+  }
+};
 
   return (
     <section id="contact" className="py-28 px-6 md:px-12 relative z-10">
@@ -135,31 +172,35 @@ export const Contact: React.FC<ContactProps> = ({ setCursorState }) => {
                 <form onSubmit={handleFormSubmit} className="space-y-3">
                   <input
                     type="text"
+                    name="name"
                     placeholder="Your Name"
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-[#a8a8a3]/60 focus:border-[#FF5A1F] focus:outline-none text-sm font-sans"
-                  />
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white"
+                />
                   <input
                     type="email"
+                    name="email"
                     placeholder="Your Email"
                     value={formState.email}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-[#a8a8a3]/60 focus:border-[#FF5A1F] focus:outline-none text-sm font-sans"
-                  />
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white"
+                />
                   <textarea
+                    name="message"
                     placeholder="Tell me about your project..."
                     rows={3}
                     value={formState.message}
-                    onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                    onChange={(e) =>
+                      setFormState({ ...formState, message: e.target.value })}  
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-[#a8a8a3]/60 focus:border-[#FF5A1F] focus:outline-none text-sm font-sans resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white"
                   />
                   <button
                     type="submit"
-                    className="w-full py-3 rounded-xl bg-white/10 hover:bg-[#FF5A1F] hover:text-black font-bold font-heading text-xs uppercase tracking-wider transition-colors duration-300"
+                    className="w-full py-3 rounded-xl bg-white/10 hover:bg-[#FF5A1F] hover:text-black font-bold"
                   >
                     Submit Inquiry
                   </button>
