@@ -119,6 +119,15 @@ export const Hero: React.FC<HeroProps> = ({ setCursorState }) => {
               </motion.span>
             ))}
           </h1>
+          {/* SEO Identity */}
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-sm sm:text-base font-semibold tracking-wide text-[#d5d5d0] mb-3"
+          >
+            Karthick G — Senior Graphic Designer
+          </motion.h2>
 
           {/* Description */}
           <motion.p
@@ -129,6 +138,11 @@ export const Hero: React.FC<HeroProps> = ({ setCursorState }) => {
           >
             {PERSONAL_INFO.heroDescription}
           </motion.p>
+
+          <p className="sr-only">
+            Karthick G is a Senior Graphic Designer specializing in branding,
+            print design and digital design.
+          </p>
 
           {/* CTA Buttons */}
           <motion.div
