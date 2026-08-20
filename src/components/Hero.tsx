@@ -115,7 +115,7 @@ export const Hero: React.FC<HeroProps> = ({ setCursorState }) => {
             </motion.p>
 
             {/* Big Rotating Animated Role Header */}
-            <div className="relative min-h-[48px] xs:min-h-[58px] sm:min-h-[80px] xl:min-h-[96px] flex items-center justify-center lg:justify-start overflow-hidden">
+            <div className="relative min-h-[54px] xs:min-h-[64px] sm:min-h-[80px] xl:min-h-[96px] flex items-center justify-center lg:justify-start overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={currentRoleIndex}
@@ -123,7 +123,7 @@ export const Hero: React.FC<HeroProps> = ({ setCursorState }) => {
                   animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
                   exit={{ y: -35, opacity: 0, filter: 'blur(8px)' }}
                   transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold tracking-tight font-heading leading-tight orange-gradient-text text-glow underline decoration-[#FF5A1F]/40 decoration-wavy whitespace-nowrap"
+                  className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold tracking-tight font-heading leading-tight orange-gradient-text text-glow underline decoration-[#FF5A1F]/40 decoration-wavy whitespace-nowrap"
                 >
                   {roles[currentRoleIndex]}
                 </motion.h1>

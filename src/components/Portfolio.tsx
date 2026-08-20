@@ -78,14 +78,14 @@ export const Portfolio: React.FC<PortfolioProps> = ({ setCursorState }) => {
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header & Carousel Controls */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
+        <div className="flex items-end justify-between mb-10 sm:mb-14 md:mb-16 gap-4">
           <div>
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF5A1F]/10 border border-[#FF5A1F]/30 text-[#FF5A1F] text-xs font-mono font-semibold uppercase tracking-widest mb-3"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF5A1F]/10 border border-[#FF5A1F]/30 text-[#FF5A1F] text-xs font-mono font-semibold uppercase tracking-widest mb-2.5 sm:mb-3"
             >
               <FolderKanban className="w-3.5 h-3.5" />
               <span>Selected Portfolio</span>
@@ -96,34 +96,32 @@ export const Portfolio: React.FC<PortfolioProps> = ({ setCursorState }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
+              className="text-2xl xs:text-3xl md:text-5xl font-extrabold font-heading text-white tracking-tight"
             >
               Crafted with <span className="orange-gradient-text">precision.</span>
             </motion.h2>
           </div>
 
-          <div className="flex items-center gap-2">
-            {/* Glass Navigation Arrows */}
-            <div className="flex items-center gap-2">
-              <button
-                onClick={prevSlide}
-                className="w-11 h-11 rounded-2xl glass-card flex items-center justify-center text-white border border-white/15 hover:border-[#FF5A1F] hover:bg-[#FF5A1F] hover:text-black transition-all shadow-lg active:scale-95 cursor-pointer"
-                onMouseEnter={() => setCursorState({ variant: 'hover' })}
-                onMouseLeave={() => setCursorState({ variant: 'default' })}
-                title="Previous Projects"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={nextSlide}
-                className="w-11 h-11 rounded-2xl glass-card flex items-center justify-center text-white border border-white/15 hover:border-[#FF5A1F] hover:bg-[#FF5A1F] hover:text-black transition-all shadow-lg active:scale-95 cursor-pointer"
-                onMouseEnter={() => setCursorState({ variant: 'hover' })}
-                onMouseLeave={() => setCursorState({ variant: 'default' })}
-                title="Next Projects"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
+          {/* Glass Navigation Arrows - Aligned to the right side of the heading */}
+          <div className="flex items-center gap-2 shrink-0 self-end mb-1">
+            <button
+              onClick={prevSlide}
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl glass-card flex items-center justify-center text-white border border-white/15 hover:border-[#FF5A1F] hover:bg-[#FF5A1F] hover:text-black transition-all shadow-lg active:scale-95 cursor-pointer"
+              onMouseEnter={() => setCursorState({ variant: 'hover' })}
+              onMouseLeave={() => setCursorState({ variant: 'default' })}
+              title="Previous Projects"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl glass-card flex items-center justify-center text-white border border-white/15 hover:border-[#FF5A1F] hover:bg-[#FF5A1F] hover:text-black transition-all shadow-lg active:scale-95 cursor-pointer"
+              onMouseEnter={() => setCursorState({ variant: 'hover' })}
+              onMouseLeave={() => setCursorState({ variant: 'default' })}
+              title="Next Projects"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
 
