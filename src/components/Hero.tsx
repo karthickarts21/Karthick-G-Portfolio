@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { ArrowDown, FolderKanban, Mail } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { CursorState } from '../types';
@@ -31,15 +31,16 @@ export const Hero: React.FC<HeroProps> = ({ setCursorState }) => {
     mouseY.set(0);
   };
 
-  // Words for word-by-word headline reveal
-  const headlineWords = [
-    { text: 'Turning', accent: false },
-    { text: 'Ideas', accent: false },
-    { text: 'into', accent: false },
-    { text: 'Powerful', accent: true },
-    { text: 'Visual', accent: false },
-    { text: 'Experiences.', accent: false },
-  ];
+  // Rotating roles for hero animation
+  const roles = ['GRAPHIC DESIGNER', 'UI/UX DESIGNER'];
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, [roles.length]);
 
   const floatingBadges = [
     { 
@@ -101,33 +102,34 @@ export const Hero: React.FC<HeroProps> = ({ setCursorState }) => {
             </span>
           </motion.div>
 
-          {/* Headline (Word by Word Animated Reveal) */}
-          <h1 className="text-3xl xs:text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight font-heading leading-[1.12] sm:leading-[1.08] mb-4 sm:mb-6 text-white w-full">
-            {headlineWords.map((word, idx) => (
-              <motion.span
-                key={idx}
-                initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                transition={{ duration: 0.6, delay: 0.1 * idx, ease: [0.16, 1, 0.3, 1] }}
-                className={`inline-block mr-2 sm:mr-3 ${
-                  word.accent
-                    ? 'orange-gradient-text text-glow underline decoration-[#FF5A1F]/40 decoration-wavy'
-                    : ''
-                }`}
-              >
-                {word.text}
-              </motion.span>
-            ))}
-          </h1>
-          {/* SEO Identity */}
-          <motion.h2
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-sm sm:text-base font-semibold tracking-wide text-[#d5d5d0] mb-3"
-          >
-            Karthick G — Senior Graphic Designer
-          </motion.h2>
+          {/* Headline Container with Small Name & Big Rotating Roles */}
+          <div className="mb-4 sm:mb-6 w-full">
+            {/* Small Greeting Line */}
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-sm xs:text-base sm:text-2xl font-bold font-heading text-[#a8a8a3] tracking-wider mb-1 sm:mb-2"
+            >
+              Hi, I'm <span className="text-white">KARTHICK G</span>
+            </motion.p>
+
+            {/* Big Rotating Animated Role Header */}
+            <div className="relative min-h-[48px] xs:min-h-[58px] sm:min-h-[80px] xl:min-h-[96px] flex items-center justify-center lg:justify-start overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.h1
+                  key={currentRoleIndex}
+                  initial={{ y: 35, opacity: 0, filter: 'blur(8px)' }}
+                  animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                  exit={{ y: -35, opacity: 0, filter: 'blur(8px)' }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold tracking-tight font-heading leading-tight orange-gradient-text text-glow underline decoration-[#FF5A1F]/40 decoration-wavy whitespace-nowrap"
+                >
+                  {roles[currentRoleIndex]}
+                </motion.h1>
+              </AnimatePresence>
+            </div>
+          </div>
 
           {/* Description */}
           <motion.p
@@ -138,11 +140,6 @@ export const Hero: React.FC<HeroProps> = ({ setCursorState }) => {
           >
             {PERSONAL_INFO.heroDescription}
           </motion.p>
-
-          <p className="sr-only">
-            Karthick G is a Senior Graphic Designer specializing in branding,
-            print design and digital design.
-          </p>
 
           {/* CTA Buttons */}
           <motion.div
@@ -231,7 +228,7 @@ export const Hero: React.FC<HeroProps> = ({ setCursorState }) => {
               <div className="absolute inset-x-0 bottom-0 top-[-20%] flex items-end justify-center overflow-visible pointer-events-none">
                 <img
                   src={profileImage}
-                  alt="Karthick G — Senior Graphic Designer"
+                  alt="Karthick G — Graphic Designer"
                   className="w-[112%] h-[120%] max-w-none object-cover object-top transform group-hover:scale-105 group-hover:-translate-y-2 transition-all duration-500 ease-out filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.85)]"
                 />
               </div>

@@ -10,8 +10,8 @@ import project07Img from '../assets/images/Project 07.png';
 
 export const PERSONAL_INFO = {
   name: 'Karthick G',
-  title: 'Senior Graphic Designer',
-  subtitle: 'Senior Graphic Designer • 6+ Years Experience',
+  title: 'Graphic Designer',
+  subtitle: 'Graphic Designer • 6+ Years Experience',
   location: 'Chennai, Tamil Nadu',
   fullLocation: 'Chennai, Tamil Nadu, India',
   phone: '+91 8760626890',
@@ -22,7 +22,7 @@ export const PERSONAL_INFO = {
   tagline: 'Turning Ideas into Powerful Visual Experiences.',
   heroBadge: 'Available for Hire',
   heroHeading: 'Turning Ideas into Powerful Visual Experiences.',
-  heroDescription: "Hi, I'm Karthick G, a Senior Graphic Designer based in Chennai with over 6 years of experience in Graphic Design, Print Media, Branding, and Visual Communication. I create professional, creative, and impactful designs that help businesses grow and communicate their ideas effectively.",
+  heroDescription: "Hi, I'm Karthick G, a Graphic Designer based in Chennai with over 6 years of experience in Graphic Design, Print Media, Branding, and Visual Communication. I create professional, creative, and impactful designs that help businesses grow and communicate their ideas effectively.",
   socials: {
     instagram: 'https://www.instagram.com/karthi_designer_21',
     whatsapp: 'https://wa.me/message/G75CQBXZRKUYJ1',
@@ -30,17 +30,15 @@ export const PERSONAL_INFO = {
     github: 'https://github.com'
   },
   defaultAvatar: karthickImg,
-  philosophy: '"I believe every machine has something to teach, every challenge has a solution, and every design is an opportunity to learn, create, and inspire."',
+  philosophy: '“Good design is more than making things look better. It’s about communicating clearly, creating impact, and turning ideas into visuals that work.”',
 };
 
 export const ABOUT_CONTENT = {
   title: 'From Curiosity to Creativity',
   paragraphs: [
-    "I'm Karthick G, a passionate Senior Graphic Designer with more than 6 years of experience in Graphic Design, Print Media, Branding, and Digital Creativity.",
-    "My design journey started during my school days when I spent hours creating wallpapers and experimenting with graphic design on my government-issued laptop. It was simply a hobby that gradually became my passion.",
-    "The turning point came when one of my friends got married and asked me to design a flex banner. Seeing my own design printed for the first time made me realize that graphic design was more than a hobby—it was the career I wanted to pursue.",
-    "Although I completed my B.E. in Mechanical Engineering at Thamirabharani Engineering College, my passion for design never faded. Throughout college, I learned design software during my free time and worked on part-time design projects.",
-    "Today, I work as a Senior Graphic Designer at Sukan Traders while also helping businesses through freelance graphic design services. Recently, I have started learning UI/UX Design because I believe learning never stops."
+    'I’m Karthick G, a Graphic Designer specializing in branding, print design, and visual communication. I create clean, impactful designs that help businesses build a strong and consistent visual identity.',
+    'My experience spans branding, marketing creatives, posters, banners, business stationery, and print-ready artwork — combining creative thinking with precise production execution.',
+    'I’m continuously exploring new design approaches and digital tools to create work that is not only visually strong, but also purposeful and production-ready.'
   ]
 };
 
@@ -56,29 +54,13 @@ export const STRENGTHS = [
 ];
 
 export const STATS = [
-  { value: '6+', label: 'Years Experience', description: 'Senior Graphic Designer' },
-  { value: '500+', label: 'Print & Digital Projects', description: 'Banners, Packaging & Branding' },
-  { value: '100%', label: 'On-Time Delivery', description: 'Precision & Client Satisfaction' },
-  { value: '2021', label: 'Full-Time Design Career', description: 'B.E. Mechanical Graduate' }
+  { value: '6+', label: 'Years of Design Experience', description: '' },
+  { value: '500+', label: 'Print & Digital Projects', description: '' },
+  { value: '100%', label: 'Design-Focused Approach', description: '' },
+  { value: '2021', label: 'Professional Design Career', description: '' }
 ];
 
 export const EXPERIENCE_TIMELINE: ExperienceItem[] = [
-  {
-    id: 'exp-1',
-    period: '2023 – Present',
-    role: 'Senior Graphic Designer',
-    company: 'Sukan Traders',
-    location: 'Gummidipoondi, Tiruvallur District, Chennai',
-    description: 'Leading end-to-end graphic designing, print media, branding identity, and print production.'
-  },
-  {
-    id: 'exp-3',
-    period: '2021 – 2023',
-    role: 'Freelance Graphic Designer',
-    company: 'Freelance Graphic Designer',
-    location: 'Surandai, Tenkasi District',
-    description: 'Provided complete end-to-end design solutions and printing consultation for regional clients and businesses.'
-  },
   {
     id: 'exp-2',
     period: '2020 – 2021',
@@ -86,6 +68,22 @@ export const EXPERIENCE_TIMELINE: ExperienceItem[] = [
     company: 'DSP Digital',
     location: 'Alangulam, Tenkasi District',
     description: 'Specialized in logo creation, wedding albums, flex banner printing, offset and digital print production.'
+  },
+  {
+    id: 'exp-3',
+    period: '2021 – 2023',
+    role: 'Freelance Graphic Designer',
+    company: 'Freelance',
+    location: 'Surandai, Tenkasi District',
+    description: 'Provided complete end-to-end design solutions and printing consultation for regional clients and businesses.'
+  },
+  {
+    id: 'exp-1',
+    period: '2023 – Present',
+    role: 'Graphic Designer',
+    company: 'Sukan Traders',
+    location: 'Gummidipoondi, Tiruvallur District, Chennai',
+    description: 'Leading end-to-end graphic designing, print media, branding identity, and print production.'
   }
 ];
 

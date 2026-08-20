@@ -69,7 +69,7 @@ export const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
               Karthick<span className="text-[#FF5A1F] inline-block animate-bounce">.</span>
             </h1>
             <p className="text-xs uppercase tracking-[0.3em] text-[#a8a8a3] mt-2 font-mono">
-              Senior Graphic Designer
+              Graphic Designer
             </p>
           </motion.div>
 

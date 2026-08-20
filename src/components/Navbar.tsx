@@ -143,9 +143,6 @@ export const Navbar: React.FC<NavbarProps> = ({ setCursorState }) => {
               <span className="text-xl font-bold font-heading tracking-tight text-white group-hover:text-[#FF5A1F] transition-colors">
                 Karthick<span className="text-[#FF5A1F]">.</span>
               </span>
-              <span className="text-[10px] uppercase font-mono tracking-widest text-[#a8a8a3] -mt-1 hidden sm:inline">
-                Senior Designer
-              </span>
             </div>
           </a>
 
@@ -243,7 +240,7 @@ export const Navbar: React.FC<NavbarProps> = ({ setCursorState }) => {
                 Hire Karthick G
               </a>
               <p className="text-center text-xs text-[#a8a8a3] font-mono">
-                Senior Graphic Designer • 6+ Yrs Exp
+                Graphic Designer • 6+ Yrs Exp
               </p>
             </div>
           </motion.div>
